@@ -1,12 +1,22 @@
 import { type Speaker } from "../Components";
 
+
+import pnt1 from "../assets/ponentes/Carlos Betancourt.jpg";
+import pnt2 from "../assets/ponentes/Alexia Struddel.png";
+import pnt3 from "../assets/ponentes/Fraser MacLean.jpg";
+import pnt4 from "../assets/ponentes/Osmar Axel.jpg";
+import pnt5 from "../assets/ponentes/Robin Morales.jpg";
+import pnt6 from "../assets/ponentes/Samuel2.jpg";
+
+
+
 export const speakers2026: Speaker[] = [
     {
         id: "Spk01",
         name: "Carlos Betancourt",
         role: "Artista 3D especializado en Look Development y Lighting",
         topic: "",
-        imageUrl: "/src/assets/ponentes/Carlos Betancourt.jpg",
+        imageUrl: pnt1,
         imageAlt: "Betancourt",
     },
     {
@@ -14,7 +24,7 @@ export const speakers2026: Speaker[] = [
         name: "Alexia Stuebing “Struddel”",
         role: "Diseñadora, ilustradora y periodista cultural",
         topic: "",
-        imageUrl: "/src/assets/ponentes/Alexia Struddel.png",
+        imageUrl: pnt2,
         imageAlt: "“Struddel”",
     },
     {
@@ -22,7 +32,7 @@ export const speakers2026: Speaker[] = [
         name: "Fraser MacLean",
         role: "Academic Mentor",
         topic: "Sesión de dibujo en vivo",
-        imageUrl: "/src/assets/ponentes/Fraser MacLean.jpg",
+        imageUrl: pnt3,
         imageAlt: "MacLean",
     },
     {
@@ -30,7 +40,7 @@ export const speakers2026: Speaker[] = [
         name: "Osmar Axell Rivera",
         role: "Artista 3D",
         topic: "",
-        imageUrl: "/src/assets/ponentes/Osmar Axel.jpg",
+        imageUrl: pnt4,
         imageAlt: "Axell",
     },
     {
@@ -38,7 +48,7 @@ export const speakers2026: Speaker[] = [
         name: "Raul Robin Morales R.",
         role: "Cineasta & Director",
         topic: "",
-        imageUrl: "/src/assets/ponentes/Robin Morales.jpg",
+        imageUrl: pnt5,
         imageAlt: "Robin",
     },
     {
@@ -46,7 +56,7 @@ export const speakers2026: Speaker[] = [
         name: "Samuel Rico",
         role: "Director de Animación",
         topic: "",
-        imageUrl: "/src/assets/ponentes/Samuel 2.JPG",
+        imageUrl: pnt6,
         imageAlt: "Rico",
     },
 ]

@@ -1,9 +1,11 @@
 import { type CarouselSlide } from "../Components";
+import bnr1 from "../assets/Carousel/I&M.webp";
+import bnr2 from "../assets/ponentes/Samuel2.jpg";
 
 export const CarouselItems: CarouselSlide[] = [
     {
         id: "BNR1",
-        src: "/src/assets/Carousel/I&M.webp",
+        src: bnr1,
         alt: "Ink & Motion",
         title: "",
         description: "13 y 14 de Noviembre",
@@ -12,7 +14,7 @@ export const CarouselItems: CarouselSlide[] = [
     },
     {
         id: "BNR2",
-        src: "/src/assets/ponentes/Samuel 2.JPG",
+        src: bnr2,
         alt: "Mapa",
         title: "Mapa del evento",
         description: "Conoce cada rincón del evento",
