@@ -32,6 +32,7 @@ export function EventLandingPage({
   footerLinks,
   brand,
 }: EventLandingPageProps) {
+
   return (
     <div className="event-page">
       <header className="event-page__hero">
@@ -40,7 +41,13 @@ export function EventLandingPage({
       </header>
 
       <main className="event-page__content">
-        <EventCountdown targetDate={eventDate} />
+        <EventCountdown
+          completedMessage="El evento ya ha comenzado."
+          title="El evento comienza en"
+          location="Universidad Oriente,
+          Plantel Central,
+          Av. 21 Ote. 1816"
+          targetDate={eventDate} />
         <SpeakersSection speakers={speakers} />
       </main>
 

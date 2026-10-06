@@ -300,9 +300,8 @@ a {
 
 .event-countdown {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.25rem 1.5rem;
-  align-items: center;
+  gap: 1.75rem;
+  width: 100%;
   padding: clamp(1.25rem, 3vw, 2rem);
   color: #ffffff;
   background: linear-gradient(120deg, #347bae, #16214f);
@@ -310,31 +309,30 @@ a {
   border-radius: 1.25rem;
   box-shadow: 0 1rem 2.5rem rgba(22, 33, 79, 0.22);
 }
+.event-countdown__countdown {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
 .event-countdown__title {
   margin: 0;
   color: #7ed7e1;
   font-family: "Baron Neue";
-  font-size: 0.85rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
   font-weight: 800;
   letter-spacing: 0.1em;
+  line-height: 1.4;
   text-transform: uppercase;
-}
-.event-countdown__date {
-  color: #ffffff;
-  font-family: "Baron Neue";
-  font-weight: 700;
 }
 .event-countdown__units {
   display: grid;
-  grid-column: 1/-1;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(0.5rem, 2vw, 1.25rem);
-  margin-top: 0.85rem;
 }
 .event-countdown__unit {
   display: grid;
-  gap: 0.15rem;
-  padding: 0.75rem 0.5rem;
+  gap: 0.35rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem) 0.5rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -342,20 +340,136 @@ a {
 }
 .event-countdown__value {
   color: #ffce43;
+  font-family: "Baron Neue";
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 850;
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  font-family: "Baron Neue";
 }
 .event-countdown__label {
-  padding-top: 1rem;
+  padding-top: 0.35rem;
   color: #ffffff;
+  font-family: Arial, sans-serif;
   font-size: 0.72rem;
-  font-family: "Arial";
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+.event-countdown__event-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.event-countdown__info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0.25rem clamp(0.75rem, 2vw, 1.5rem);
+  gap: 0.75rem;
+}
+.event-countdown__info-item:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+.event-countdown__info-item > div {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.event-countdown__info-item a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+.event-countdown__info-item a:hover, .event-countdown__info-item a:focus-visible {
+  color: #ffce43;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+.event-countdown__info-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: #ffce43;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(126, 215, 225, 0.3);
+  border-radius: 50%;
+  font-size: 1.15rem;
+}
+.event-countdown__info-label {
+  color: #7ed7e1;
+  font-family: "Baron Neue";
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.event-countdown__info-item time, .event-countdown__info-item > div > span:last-child {
+  overflow-wrap: anywhere;
+  color: #ffffff;
+  font-family: "Insanib C";
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 100;
+  line-height: 1.35;
+}
+.event-countdown__completed {
+  margin: 0;
+  color: #ffce43;
+  font-family: "Baron Neue";
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.4;
+}
+@media (max-width: 42rem) {
+  .event-countdown {
+    gap: 1.5rem;
+  }
+  .event-countdown__units {
+    gap: 0.5rem;
+  }
+  .event-countdown__unit {
+    padding: 0.75rem 0.25rem;
+  }
+  .event-countdown__event-info {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .event-countdown__info-item {
+    justify-content: flex-start;
+    padding: 0.85rem 0;
+  }
+  .event-countdown__info-item:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+@media (max-width: 28rem) {
+  .event-countdown {
+    padding: 1rem;
+  }
+  .event-countdown__units {
+    gap: 0.35rem;
+  }
+  .event-countdown__unit {
+    padding: 0.65rem 0.15rem;
+  }
+  .event-countdown__value {
+    font-size: clamp(1.35rem, 9vw, 2rem);
+  }
+  .event-countdown__label {
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+  }
+  .event-countdown__info-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 
 .speakers-section {
