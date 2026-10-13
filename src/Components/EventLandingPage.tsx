@@ -1,15 +1,23 @@
 import type { ReactNode } from "react";
+
+import { SponsorsData } from "../data/sponsors";
+
 import {
   EventCountdown,
   Footer,
   ImageCarousel,
   NavigationBar,
+  SocialLinks,
   SpeakersSection,
+  SponsorsSection,
   type CarouselSlide,
   type FooterLink,
   type NavigationItem,
   type Speaker,
 } from "../Components";
+import { InkMotionLinks } from "../data/socials";
+
+
 
 interface EventLandingPageProps {
   navigationItems: NavigationItem[];
@@ -36,11 +44,15 @@ export function EventLandingPage({
   return (
     <div className="event-page">
       <header className="event-page__hero">
+
         <NavigationBar items={navigationItems} brand={brand} />
+
         <ImageCarousel slides={carouselSlides} autoPlay />
+
       </header>
 
       <main className="event-page__content">
+
         <EventCountdown
           completedMessage="El evento ya ha comenzado."
           title="El evento comienza en"
@@ -48,10 +60,17 @@ export function EventLandingPage({
           Plantel Central,
           Av. 21 Ote. 1816"
           targetDate={eventDate} />
+
         <SpeakersSection speakers={speakers} />
+
+        <SponsorsSection sponsors={SponsorsData} />
+
+        <SocialLinks links={InkMotionLinks} />
+
       </main>
 
       <Footer links={footerLinks} />
+
     </div>
   );
 }

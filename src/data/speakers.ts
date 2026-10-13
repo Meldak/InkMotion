@@ -15,48 +15,90 @@ export const speakers2026: Speaker[] = [
         id: "Spk01",
         name: "Carlos Betancourt",
         role: "Artista 3D especializado en Look Development y Lighting",
+        title: "",
         topic: "",
         imageUrl: pnt1,
         imageAlt: "Betancourt",
+        trajectory: "",
+        biography: "",
+        socialLinks: [{
+            label: "Instagram",
+            href: "https://www.instagram.com/inkandmotion.uo"
+        }]
     },
     {
-        id: "",
+        id: "Spk02",
         name: "Alexia Stuebing “Struddel”",
         role: "Diseñadora, ilustradora y periodista cultural",
+        title: "",
         topic: "",
         imageUrl: pnt2,
         imageAlt: "“Struddel”",
+        trajectory: "",
+        biography: "",
+        socialLinks: [{
+            label: "Instagram",
+            href: "https://www.instagram.com/inkandmotion.uo"
+        }]
     },
     {
-        id: "",
+        id: "Spk03",
         name: "Fraser MacLean",
         role: "Academic Mentor",
+        title: "",
         topic: "Sesión de dibujo en vivo",
         imageUrl: pnt3,
         imageAlt: "MacLean",
+        trajectory: "",
+        biography: "",
+        socialLinks: [{
+            label: "Instagram",
+            href: "https://www.instagram.com/inkandmotion.uo"
+        }]
     },
     {
-        id: "",
+        id: "Spk04",
         name: "Osmar Axell Rivera",
         role: "Artista 3D",
+        title: "",
         topic: "",
         imageUrl: pnt4,
         imageAlt: "Axell",
+        trajectory: "",
+        biography: "",
+        socialLinks: [{
+            label: "Instagram",
+            href: "https://www.instagram.com/inkandmotion.uo"
+        }]
     },
     {
-        id: "",
+        id: "Spk05",
         name: "Raul Robin Morales R.",
         role: "Cineasta & Director",
+        title: "",
         topic: "",
         imageUrl: pnt5,
         imageAlt: "Robin",
+        trajectory: "",
+        biography: "",
+        socialLinks: [{
+            label: "Instagram",
+            href: "https://www.instagram.com/inkandmotion.uo"
+        }]
     },
     {
-        id: "",
+        id: "Spk06",
         name: "Samuel Rico",
         role: "Director de Animación",
+        title: "",
         topic: "",
         imageUrl: pnt6,
         imageAlt: "Rico",
+        trajectory: "",
+        biography: "",
+        socialLinks: [{
+            label: "Instagram",
+            href: "https://www.instagram.com/inkandmotion.uo"
+        }]
     },
 ]

@@ -2,19 +2,38 @@ export interface Speaker {
   id: string;
   name: string;
   role?: string;
+  title?: string;
   topic?: string;
   imageUrl?: string;
   imageAlt?: string;
+  trajectory?: string;
+  biography?: string;
+  socialLinks?: SpeakerSocialLink[];
+}
+
+export interface SpeakerSocialLink {
+  label: string;
+  href: string;
 }
 
 interface SpeakerCardProps {
   speaker: Speaker;
+  onSelect?: (speaker: Speaker) => void;
 }
 
 /** Tarjeta individual para una persona expositora. */
-export function SpeakerCard({ speaker }: SpeakerCardProps) {
+export function SpeakerCard({ speaker, onSelect }: SpeakerCardProps) {
   return (
     <article className="speaker-card">
+      {onSelect && (
+        <button
+          className="speaker-card__trigger"
+          type="button"
+          onClick={() => onSelect(speaker)}
+          aria-label={`Ver el perfil de ${speaker.name}`}
+        />
+      )}
+
       {speaker.imageUrl && (
         <img
           className="speaker-card__image"

@@ -508,6 +508,7 @@ a {
 }
 
 .speaker-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -521,6 +522,25 @@ a {
 .speaker-card:hover {
   box-shadow: 0 1rem 2.25rem rgba(22, 33, 79, 0.2);
   transform: translateY(-0.4rem);
+}
+.speaker-card:focus-within {
+  box-shadow: 0 1rem 2.25rem rgba(22, 33, 79, 0.2);
+  transform: translateY(-0.4rem);
+}
+.speaker-card__trigger {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+}
+.speaker-card__trigger:focus-visible {
+  outline: 0.2rem solid #ffce43;
+  outline-offset: -0.2rem;
 }
 .speaker-card__image {
   width: 100%;
@@ -558,6 +578,280 @@ a {
   font-weight: 100;
   line-height: 1.55;
   border-top: 1px solid rgba(102, 175, 216, 0.45);
+}
+
+.speaker-details-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+  background: rgba(22, 33, 79, 0.78);
+  -webkit-backdrop-filter: blur(0.35rem);
+  backdrop-filter: blur(0.35rem);
+}
+.speaker-details-modal__dialog {
+  position: relative;
+  width: min(100%, 52rem);
+  max-height: min(48rem, 100dvh - 2.5rem);
+  overflow-y: auto;
+  color: #16214f;
+  background: #ffffff;
+  border: 1px solid rgba(126, 215, 225, 0.75);
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 4rem rgba(22, 33, 79, 0.45);
+}
+.speaker-details-modal__close {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: #ffffff;
+  background: #16214f;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.75rem;
+  line-height: 1;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.speaker-details-modal__close:hover, .speaker-details-modal__close:focus-visible {
+  color: #16214f;
+  background: #ffce43;
+  transform: scale(1.08);
+}
+.speaker-details-modal__intro {
+  display: grid;
+  grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  background: linear-gradient(135deg, rgba(126, 215, 225, 0.42), rgba(255, 255, 255, 0.9));
+}
+.speaker-details-modal__image-wrapper {
+  display: grid;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #347bae;
+  border: 0.25rem solid #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 0.8rem 1.5rem rgba(22, 33, 79, 0.18);
+}
+.speaker-details-modal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.speaker-details-modal__image-placeholder {
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-family: "Baron Neue";
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+.speaker-details-modal__eyebrow, .speaker-details-modal__name, .speaker-details-modal__role, .speaker-details-modal__title, .speaker-details-modal__topic {
+  margin: 0;
+}
+.speaker-details-modal__eyebrow {
+  color: #d28118;
+  font-family: "Baron Neue";
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.speaker-details-modal__name {
+  margin-top: 0.45rem;
+  color: #16214f;
+  font-family: "Insanib U";
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 100;
+  line-height: 1;
+}
+.speaker-details-modal__role {
+  margin-top: 0.85rem;
+  color: #347bae;
+  font-family: "Baron Neue";
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.speaker-details-modal__title, .speaker-details-modal__topic {
+  margin-top: 0.65rem;
+  color: #16214f;
+  font-family: "Insanib C";
+  line-height: 1.5;
+}
+.speaker-details-modal__title {
+  font-size: 1.05rem;
+}
+.speaker-details-modal__topic {
+  padding-top: 0.65rem;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(52, 123, 174, 0.25);
+}
+.speaker-details-modal__content {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+.speaker-details-modal__section h3,
+.speaker-details-modal__section p {
+  margin: 0;
+}
+.speaker-details-modal__section h3 {
+  color: #347bae;
+  font-family: "Baron Neue";
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.speaker-details-modal__section p {
+  margin-top: 0.55rem;
+  color: #16214f;
+  font-family: "Insanib C";
+  line-height: 1.7;
+  white-space: pre-line;
+}
+.speaker-details-modal__social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0.7rem 0 0;
+  list-style: none;
+}
+.speaker-details-modal__social-links a {
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  color: #ffffff;
+  background: #347bae;
+  border-radius: 0.5rem;
+  font-family: "Baron Neue";
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.speaker-details-modal__social-links a:hover, .speaker-details-modal__social-links a:focus-visible {
+  color: #16214f;
+  background: #ffce43;
+  transform: translateY(-0.1rem);
+}
+
+.sponsors-section {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+.sponsors-section__header {
+  max-width: 42rem;
+  margin: 0 auto clamp(1.75rem, 4vw, 2.75rem);
+  text-align: center;
+}
+.sponsors-section__title {
+  margin: 0;
+  color: #16214f;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1;
+}
+.sponsors-section__subtitle {
+  margin: 0.9rem 0 0;
+  color: #347bae;
+  line-height: 1.6;
+}
+.sponsors-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.sponsor-logo {
+  display: grid;
+  place-items: center;
+  min-height: 8.5rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(102, 175, 216, 0.45);
+  border-radius: 0.9rem;
+  box-shadow: 0 0.5rem 1.25rem rgba(22, 33, 79, 0.08);
+}
+.sponsor-logo--link {
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+.sponsor-logo--link:hover, .sponsor-logo--link:focus-visible {
+  border-color: #d28118;
+  box-shadow: 0 0.85rem 1.75rem rgba(22, 33, 79, 0.18);
+  transform: translateY(-0.25rem);
+}
+.sponsor-logo__image {
+  display: block;
+  width: 100%;
+  max-width: 10rem;
+  max-height: 4.5rem;
+  object-fit: contain;
+}
+
+.social-links {
+  display: grid;
+  gap: 0.9rem;
+  justify-items: center;
+}
+.social-links__title {
+  margin: 0;
+  color: #16214f;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.social-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.social-links__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.55rem;
+  color: #ffffff;
+  background: #347bae;
+  border-radius: 0.7rem;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.social-links__link:hover, .social-links__link:focus-visible {
+  color: #16214f;
+  background: #ffce43;
+  transform: translateY(-0.15rem);
+}
+.social-links__icon {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.social-links__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.social-links__label {
+  padding-right: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .site-footer {
@@ -636,6 +930,21 @@ a {
   }
   .event-countdown__unit {
     padding: 0.65rem 0.25rem;
+  }
+  .speaker-details-modal {
+    padding: 0.75rem;
+  }
+  .speaker-details-modal__intro {
+    grid-template-columns: 1fr;
+    padding-top: 4.5rem;
+    text-align: center;
+  }
+  .speaker-details-modal__image-wrapper {
+    width: min(13rem, 100%);
+    margin: 0 auto;
+  }
+  .speaker-details-modal__social-links {
+    justify-content: center;
   }
 }
 @media (prefers-reduced-motion: reduce) {

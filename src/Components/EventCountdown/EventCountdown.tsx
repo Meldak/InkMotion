@@ -92,11 +92,8 @@ export function EventCountdown({
 
     const timerId = window.setInterval(updateTime, SECOND);
 
-    console.log("EventCountdown location:", location);
-
-
     return () => window.clearInterval(timerId);
-  }, [isValidTargetDate, targetTime]);
+  }, [isValidTargetDate, targetTime, location]);
 
   if (!isValidTargetDate) {
     return (
@@ -145,27 +142,23 @@ export function EventCountdown({
               </time>
             </div>
           </div>
-
           {location && (
             <div className="event-countdown__info-item">
               <span className="event-countdown__info-icon" aria-hidden="true">
                 📍
               </span>
-
               <div>
                 <span className="event-countdown__info-label">
                   Lugar
                 </span>
-
-                <span>
-                  <a
-                    href="https://www.google.com/maps"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <span>
                     {location}
-                  </a>
-                </span>
+                  </span>
+                </a>
               </div>
             </div>
           )}
@@ -261,8 +254,13 @@ export function EventCountdown({
               <span className="event-countdown__info-label">
                 Lugar
               </span>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`}
+                target="_blank"
+                rel="noopener noreferrer">
 
-              <span>{location}</span>
+                <span>{location}</span>
+              </a>
             </div>
           </div>
         )}

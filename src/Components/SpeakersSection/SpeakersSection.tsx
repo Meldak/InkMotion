@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { SpeakerCard, type Speaker } from "./SpeakerCard";
+import { SpeakerDetailsModal } from "./SpeakerDetailsModal";
 
 interface SpeakersSectionProps {
   speakers: Speaker[];
@@ -14,6 +16,8 @@ export function SpeakersSection({
   subtitle,
   className = "",
 }: SpeakersSectionProps) {
+  const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
+
   return (
     <section className={`speakers-section ${className}`.trim()} id="expositores" aria-labelledby="speakers-title">
       <header className="speakers-section__header">
@@ -25,9 +29,11 @@ export function SpeakersSection({
 
       <div className="speakers-section__grid">
         {speakers.map((speaker) => (
-          <SpeakerCard key={speaker.id} speaker={speaker} />
+          <SpeakerCard key={speaker.id} speaker={speaker} onSelect={setSelectedSpeaker} />
         ))}
       </div>
+
+      <SpeakerDetailsModal speaker={selectedSpeaker} onClose={() => setSelectedSpeaker(null)} />
     </section>
   );
 }
