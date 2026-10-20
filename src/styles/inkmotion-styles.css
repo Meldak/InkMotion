@@ -232,7 +232,7 @@ a {
 }
 .image-carousel__title {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(1.5rem, 2vw, 4.5rem);
   font-weight: 100;
   line-height: 0.98;
 }
@@ -766,7 +766,7 @@ a {
 }
 .sponsors-section__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   gap: 1rem;
   align-items: stretch;
 }
@@ -775,10 +775,10 @@ a {
   display: grid;
   place-items: center;
   min-height: 8.5rem;
-  padding: 1.25rem;
+  padding: 1rem;
   background: #ffffff;
   border: 1px solid rgba(102, 175, 216, 0.45);
-  border-radius: 0.9rem;
+  border-radius: 2.9rem;
   box-shadow: 0 0.5rem 1.25rem rgba(22, 33, 79, 0.08);
 }
 .sponsor-logo--link {
@@ -793,8 +793,8 @@ a {
 .sponsor-logo__image {
   display: block;
   width: 100%;
-  max-width: 10rem;
-  max-height: 4.5rem;
+  max-width: 15rem;
+  max-height: 10rem;
   object-fit: contain;
 }
 
@@ -806,7 +806,7 @@ a {
 .social-links__title {
   margin: 0;
   color: #16214f;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -816,7 +816,7 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.65rem;
-  padding: 0;
+  padding: 10px;
   margin: 0;
   list-style: none;
 }
@@ -825,7 +825,7 @@ a {
   align-items: center;
   gap: 0.5rem;
   min-height: 2.75rem;
-  padding: 0.55rem;
+  padding: 1.55rem;
   color: #ffffff;
   background: #347bae;
   border-radius: 0.7rem;

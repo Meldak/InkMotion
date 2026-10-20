@@ -23,7 +23,7 @@ export function SponsorsSection({
             aria-labelledby="sponsors-title"
         >
             <header className="sponsors-section__header">
-                <h2 className="sponsors-section__title" id="sponsors-title">
+                <h2 className="sponsors-section__title" id="sponsors">
                     {title}
                 </h2>
                 {subtitle && <p className="sponsors-section__subtitle">{subtitle}</p>}

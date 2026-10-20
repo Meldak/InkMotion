@@ -10,8 +10,8 @@ export const navigationItems: NavigationItem[] = [
         href: "#expositores",
     },
     {
-        label: "Contacto",
-        href: "#contacto",
+        label: "Patrocinadores",
+        href: "#sponsors",
     },
     {
         label: "Instagram",
